@@ -1,10 +1,8 @@
-from typing import Optional
+from typing import Any
 import cv2
 
-from roop.typing import Frame
 
-
-def get_video_frame(video_path: str, frame_number: int = 0) -> Optional[Frame]:
+def get_video_frame(video_path: str, frame_number: int = 0) -> Any:
     capture = cv2.VideoCapture(video_path)
     frame_total = capture.get(cv2.CAP_PROP_FRAME_COUNT)
     capture.set(cv2.CAP_PROP_POS_FRAMES, min(frame_total, frame_number - 1))
